@@ -50,3 +50,11 @@ const nextConfig = {
 
 export default nextConfig;
 ```
+
+### Iconos y ruta activa
+
+Utilización de librería para los iconos: https://react-icons.github.io/react-icons/
+
+Comando de instalación: npm install react-icons --save
+
+### Counter - Manejo de estado
