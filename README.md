@@ -58,3 +58,31 @@ Utilización de librería para los iconos: https://react-icons.github.io/react-i
 Comando de instalación: npm install react-icons --save
 
 ### Counter - Manejo de estado
+
+Use Client : forma en que puedes indicar explícitamente que un componente se renderizará en el cliente (en el navegador) y no en el servidor.
+
+### Pensemos en Hojas y pequeños componentes
+
+En este punto nuestro contador esta funcionando en el counter page sin embargo al ser un 'use client' y queremos ponerle el SEO friendly nos surge un error, ya que tenemos que exportar metadata nos dice que al ser un use cliente es incompatible, por ende nos aconseja quitar el use client pero al quitarlo perdemos el hook y la funcionalidad del contador.
+
+##### Por lo cual la problemática planteada es la siguiente como hago uso del use client y a la vez del metadata sin tener que perder la funcionalidad?
+
+Es ahi cuando tenemos que pensar en el árbol de componente y en las hojas, el principio general es que todo en next,es decir, mi árbol es un server component y que solo unas o algunas hojas de mi árbol serán use client.
+
+Por lo tanto tendríamos que separar ese elemento use client individualizar la función y colocarla dentro de una carpeta con archivos relacionado al componente, en este caso, en nuestra carpeta de carrito de compra, tendremos todas las hojas funcionales (use client) y fuera de ello tendremos nuestro árbol de server component.
+
+##### Como mandamos un valor o elemento generado del lado del servidor?
+
+En nuestro component page donde utilizamos el CartCounter podemos enviar por props en elemento o valor generándose directamente desde el lado del server. Por ejemplo ese 20 es un valor generado directamente del lado del servidor o recibido de la DB
+
+```js
+<CartCounter value={20} />
+```
+
+Y ese value es el que usa el componente para seguir con su funcionalidad.
+
+En resumen:
+
+1. Mandamos un valor desde el lado del servidor por props
+2. Se construye el componente Cart counter
+3. Ese componente (card counter) recibe el valor que a su vez es recibido del lado del servidor y continua creando el componente con ese valor.
