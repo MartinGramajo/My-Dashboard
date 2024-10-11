@@ -5,6 +5,7 @@ import { CartCounter } from "@/app/shopping-cart/components";
 import type { Metadata } from "next";
 
 
+// mr snippets
 export const metadata: Metadata = {
   title: 'Shopping Cart',
   description: 'Counter client side',
