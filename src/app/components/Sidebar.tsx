@@ -1,3 +1,4 @@
+import Image from 'next/image'
 import React from 'react'
 
 export const Sidebar = () => {
@@ -16,7 +17,19 @@ export const Sidebar = () => {
         <p className="text-slate-500">Welcome back,</p>
         <a href="#" className="inline-flex space-x-2 items-center">
           <span>
-            <img className="rounded-full w-8 h-8" src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=128&q=80" alt="" />
+
+            {/* <Image
+              className="rounded-full w-8 h-8" src="https://images.unsplash.com/photo-1542909168-82c3e7fdca5c"
+              alt="User avatar"
+              width={50}
+              height={50}
+            /> */}
+            <Image
+              className="rounded-full w-8 h-8" src="https://res.cloudinary.com/dtbfspso5/image/upload/v1633023790/7302a352-c45c-437b-8b24-6b2a0ee2e8de_shgxhd.png"
+              alt="User avatar"
+              width={50}
+              height={50}
+            />
           </span>
           <span className="text-sm md:text-base font-bold">
             Martin G

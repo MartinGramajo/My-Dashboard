@@ -30,4 +30,23 @@ Le dimos estilo al Sidebar y por ultimo dejamos preparado la barra de navegació
 
 NOTA: no nos olvidemos de crear un archivo de botella para las importaciones, esto con el fin de tener todo mas ordenado.
 
-### Next/Image
+### Next Image
+
+es un componente optimizado que se usa en aplicaciones Next.js para manejar imágenes de manera eficiente. Este componente ofrece funcionalidades avanzadas para cargar y renderizar imágenes
+
+Por otra parte por el tipo de imagen que estamos utilizando tenemos que configurar el next.config.msj para que acepte el tipo de url de nuestra imagen.
+
+```js
+const nextConfig = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "images.unsplash.com",
+      },
+    ],
+  },
+};
+
+export default nextConfig;
+```
