@@ -86,3 +86,12 @@ En resumen:
 1. Mandamos un valor desde el lado del servidor por props
 2. Se construye el componente Cart counter
 3. Ese componente (card counter) recibe el valor que a su vez es recibido del lado del servidor y continua creando el componente con ese valor.
+
+### Generacion dinamica - ssr 
+
+El objetivo es ir creando esta aplicación que pueda aprovechar lo generado del lado del servidor como también contenido generado por el cliente.
+
+### Continuacion del proyecto 
+ 
+Agregamos la page pokemons y creamos un nuevo item en el sidebar.
+
