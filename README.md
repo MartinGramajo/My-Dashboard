@@ -104,3 +104,9 @@ El objetivo es traer data de otro servidor a nuestro servidor.
 Cada vez que hacemos una petición con Fetch() son *cached* (almacenada en cache) esto significa que cada vez que volvemos hacer la petición con los mismos argumentos, la segunda y las posteriores re utiliza la respuesta de la primera petición.
 
 Generamos la consulta a la api, utilizamos la función que hace la consulta y agregamos a nuestra page el *async-await* esto porque nuestra petición es una promesa.
+
+### Asignar tipo de datos y mostrar imágenes
+
+creamos una nueva carpeta con las interfaces que usamos para el type de la consulta de getPokemons(). 
+
+Por otra parte para tipar de manera precisa y rápida hicimos una consulta en postman de la url de la petición, copiamos la respuesta y en nuestra paleta de comando del visual utiliza el json as code para que nos haga el tipado de manera automática.
