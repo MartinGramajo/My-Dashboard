@@ -1,4 +1,8 @@
 
+
+export { PokemonGrid} from './components/PokemonGrid';
+
+export {PokemonCard} from './components/PokemonCard'
 // Type: le agregamos porque es el tipo, no el objeto con los datos.
 
 export type {PokemonsResponse} from './interfaces/pokemons-response'

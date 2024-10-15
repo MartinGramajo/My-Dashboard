@@ -1,7 +1,8 @@
 // creamos el fetch para hacer la consulta a la api
 
 import { PokemonsResponse, SimplePokemon } from "@/app/pokemons";
-import Image from "next/image";
+import PokemonGrid from "@/app/pokemons/components/PokemonGrid";
+
 
 // tipamos  la consulta con nuestra interfaces.
 const getPokemons = async (
@@ -26,19 +27,12 @@ export default async function PokemonsPage() {
 
   return (
     <div className="flex flex-col">
-      <div className="flex flex-wrap gap-10 items-center justify-center">
-        {pokemons.map((pokemon) => (
-          <div key={pokemon.id} className="w-100  p-2 rounded-xl">
-            <Image
-              src={`https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/other/dream-world/${pokemon.id}.svg`}
-              alt={pokemon.name}
-              width={100}
-              height={100}
-            />
-            <p className="text-center mt-4">{pokemon.name}</p>
-          </div>
-        ))}
-      </div>
+
+    
+      <span className="text-4xl my-2">
+        Listado de Pokemons <small> estatico</small>
+      </span>
+      <PokemonGrid pokemons={pokemons} />
     </div>
   );
 }

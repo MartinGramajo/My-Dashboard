@@ -110,3 +110,7 @@ Generamos la consulta a la api, utilizamos la función que hace la consulta y ag
 creamos una nueva carpeta con las interfaces que usamos para el type de la consulta de getPokemons(). 
 
 Por otra parte para tipar de manera precisa y rápida hicimos una consulta en postman de la url de la petición, copiamos la respuesta y en nuestra paleta de comando del visual utiliza el json as code para que nos haga el tipado de manera automática.
+
+### Componentes pequeños 
+
+Como la regla general es utilizar hasta donde podemos hacer uso del server component, tenemos que comenzar a pensar en componentes pequeños en el sentido de optimizar nuestra app.
