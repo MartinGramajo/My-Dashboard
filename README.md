@@ -91,7 +91,16 @@ En resumen:
 
 El objetivo es ir creando esta aplicación que pueda aprovechar lo generado del lado del servidor como también contenido generado por el cliente.
 
-### Continuacion del proyecto 
+### Continuación del proyecto  
  
 Agregamos la page pokemons y creamos un nuevo item en el sidebar.
 
+### Data fetching  - Next 13+
+
+En la documentación tenemos que asegurarnos que este activada la opción 'Using App Router' (esto es para aprovechar los server components).
+
+El objetivo es traer data de otro servidor a nuestro servidor.
+
+Cada vez que hacemos una petición con Fetch() son *cached* (almacenada en cache) esto significa que cada vez que volvemos hacer la petición con los mismos argumentos, la segunda y las posteriores re utiliza la respuesta de la primera petición.
+
+Generamos la consulta a la api, utilizamos la función que hace la consulta y agregamos a nuestra page el *async-await* esto porque nuestra petición es una promesa.
