@@ -114,3 +114,13 @@ Por otra parte para tipar de manera precisa y rápida hicimos una consulta en po
 ### Componentes pequeños 
 
 Como la regla general es utilizar hasta donde podemos hacer uso del server component, tenemos que comenzar a pensar en componentes pequeños en el sentido de optimizar nuestra app.
+
+### Image Priority - Prioridad de carga 
+
+El usuario al pasar por nuestra page de pokemons, dado el comportamiento que tiene carga los 151 pokemons. Lo cual, es parte de un inconveniente para los bots de google, ya al pasar también por dicha pagina, se produce la carga de nuestros 151 pokemons, haciendo lenta la carga de la misma.
+Por ende, al buscar la eficiencia de nuestra aplicación podemos hacer la carga de esas imágenes mediante el uso de una propiedad 
+*priority={false}* que hace la carga perezosa de las mismas.
+
+##### Uso del priority={false}
+
+Debemos agregarlo cuando sabemos que las imágenes primeramente van a ser cargadas bajo de demanda.  Es decir, que las imágenes se van a cargar en la medida que se haga scroll.

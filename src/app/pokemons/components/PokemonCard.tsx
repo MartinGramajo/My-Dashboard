@@ -19,6 +19,7 @@ const PokemonCard = ({ pokemon }: Props) => {
             alt={name}
             width={100}
             height={100}
+            priority={false}
           />
 
           <p className="pt-2 text-lg font-semibold text-gray-50 capitalize">{name}</p>
