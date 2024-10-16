@@ -196,3 +196,31 @@ Si los datos no cambian con frecuencia, y quieres mejorar el rendimiento, podrí
 NOTA: NO NOS OLVIDEMOS DE COLOCAR EL ASYNC - AWAIT en el server component.
 
 ### Metadata dinámica  
+
+Para cargar de forma dinamica la metadata tenemos que generar una función: 
+
+```js 
+export async function generateMetadata(  {params}: Props): Promise<Metadata> {
+
+    return {
+        title: `Pokemon name`,
+        description: `Pagina del pokemon`,
+       
+    }
+}
+```
+
+Pero nos falta agregar la consulta de donde sacaremos los datos del pokemon para utilizarla: 
+
+```js 
+export async function generateMetadata(  {params}: Props): Promise<Metadata> {
+
+    const {id, name } = await getPokemon(params.id);
+
+    return {
+        title: `#${id} - ${name}`,
+        description: `Pagina del pokemon ${name}`,
+       
+    }
+}
+```
