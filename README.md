@@ -132,3 +132,67 @@ Documentación: https://nextjs.org/docs/app/building-your-application/routing/er
 Para manejar el error next nos recomienda utilizar el archivo *error.js* que va en el mismo nivel donde queremos manejar nuestro error, en este caso en la carpeta de pokemons.
 
 En la misma documentación podemos encontrar la estructura del archivo error.tsx para utilizarlo en nuestro código.
+
+### Rutas dinámicas - Argumentos por URL
+
+Creamos en el apartado del dashboard la carpeta pokemon (en singular) con la carpeta [id], ese id puede ser argumento, name etc, cualquier nombre que nosotros quisiéramos poner pero entre corchetes esto es importante, y dentro el archivo page que seria la page en singular con la información de cada uno de los pokemons .
+
+#### Como extraemos ese id por argumentos ? 
+Dentro de nuestros props nos llegan 2 elementos: 
+
+1- params : {id:'4'}
+2- searchParams: {los cuales son opcionales o query parámetros}
+
+En este caso utilizamos el id para mostrar el numero de pokemon al cual hemos ingresado.
+
+### Cargar información del pokemon por ID
+
+1. Generamos una nueva consulta a la Api Pokemon - getPokemon()
+https://pokeapi.co/api/v2/pokemon/1
+
+2. Generamos el tipo con la consulta tomando de postman el retorno de la consulta y en la paleta de comando utilizamos paste JSON as code para que no genere el tipo automáticamente.  
+Esta interfaces la colocamos junto con las demás.
+
+3. Pasamos de manera dinámica el id del pokemon a la petición
+https://pokeapi.co/api/v2/pokemon/${id}
+
+```js 
+const getPokemon =  async (id:string): Promise<Pokemon>=>{
+    const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`,{
+        cache:'force-cache' // Todo cambiar esto en un futuro
+    }).then((res) => res.json())
+
+    console.log("se cargo ", pokemon.name);
+    
+   return pokemon;
+}
+```
+
+Nota: podemos utilizar el parámetro cache 
+Este es un parámetro dentro del objeto de opciones que controla cómo el navegador maneja el almacenamiento en caché de la solicitud.
+
+ ##### Opciones que puedes usar para el parámetro
+
+- default: Este es el comportamiento predeterminado del navegador. Si la respuesta está en caché y es válida según los encabezados HTTP (como el Cache-Control), se utiliza. Si no, se hace una solicitud al servidor.
+
+- no-store: No usa ni almacena la respuesta en caché. Se realiza siempre una solicitud nueva al servidor.
+
+- reload: Ignora el caché y fuerza una solicitud al servidor, pero la nueva respuesta puede almacenarse en caché para futuras solicitudes.
+
+- no-cache: Siempre consulta al servidor para ver si la versión almacenada en caché sigue siendo válida. Si es válida, se utiliza la caché; de lo contrario, se obtiene una nueva.
+
+- force-cache: Fuerza el uso de la caché si existe, incluso si está desactualizada. Si no hay caché, se hace la solicitud.
+
+- only-if-cached: Solo utiliza el caché, y si no hay una versión en caché disponible, falla sin hacer una solicitud al servidor. Solo funciona si la solicitud es de tipo same-origin.
+
+##### ¿Qué opción elegir?
+
+Si los datos cambian con frecuencia, como en una aplicación con datos en tiempo real, podrías usar *no-store* o *no-cache* para asegurarte de obtener siempre datos frescos.
+
+Si los datos no cambian con frecuencia, y quieres mejorar el rendimiento, podrías seguir con *force-cache* o usar *default* para dejar que el navegador administre el caché.
+
+4. Guardamos el retorno de la petición en la constante pokemon para utilizar toda su información 
+
+NOTA: NO NOS OLVIDEMOS DE COLOCAR EL ASYNC - AWAIT en el server component.
+
+### Metadata dinámica  
