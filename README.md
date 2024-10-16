@@ -124,3 +124,11 @@ Por ende, al buscar la eficiencia de nuestra aplicación podemos hacer la carga 
 ##### Uso del priority={false}
 
 Debemos agregarlo cuando sabemos que las imágenes primeramente van a ser cargadas bajo de demanda.  Es decir, que las imágenes se van a cargar en la medida que se haga scroll.
+
+### Next - error page 
+
+Documentación: https://nextjs.org/docs/app/building-your-application/routing/error-handling
+
+Para manejar el error next nos recomienda utilizar el archivo *error.js* que va en el mismo nivel donde queremos manejar nuestro error, en este caso en la carpeta de pokemons.
+
+En la misma documentación podemos encontrar la estructura del archivo error.tsx para utilizarlo en nuestro código.

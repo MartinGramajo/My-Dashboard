@@ -2,6 +2,7 @@
 
 import { PokemonsResponse, SimplePokemon } from "@/app/pokemons";
 import PokemonGrid from "@/app/pokemons/components/PokemonGrid";
+import { notFound } from "next/navigation";
 
 
 // tipamos  la consulta con nuestra interfaces.
@@ -18,6 +19,13 @@ const getPokemons = async (
     name: pokemon.name
   }));
 
+ // Manejo de error 500 
+//  throw new Error('Esto es un error que no debería suceder')
+
+// funcion de notFound()
+// throw notFound();
+
+
   return pokemons;
 };
 
@@ -27,8 +35,6 @@ export default async function PokemonsPage() {
 
   return (
     <div className="flex flex-col">
-
-    
       <span className="text-4xl my-2">
         Listado de Pokemons <small> estatico</small>
       </span>
