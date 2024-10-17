@@ -52,7 +52,7 @@ export default async function PokemonPage({ params }: Props) {
             />
             <div>
               <h1 className="px-2 text-xl font-bold text-slate-700 capitalize ">
-                Move
+                Moves
               </h1>
             </div>
 

@@ -197,7 +197,7 @@ NOTA: NO NOS OLVIDEMOS DE COLOCAR EL ASYNC - AWAIT en el server component.
 
 ### Metadata dinámica  
 
-Para cargar de forma dinamica la metadata tenemos que generar una función: 
+Para cargar de forma dinámica la metadata tenemos que generar una función: 
 
 ```js 
 export async function generateMetadata(  {params}: Props): Promise<Metadata> {
@@ -210,7 +210,7 @@ export async function generateMetadata(  {params}: Props): Promise<Metadata> {
 }
 ```
 
-Pero nos falta agregar la consulta de donde sacaremos los datos del pokemon para utilizarla: 
+Pero nos falta agregar la consulta es de donde sacaremos los datos del pokemon para utilizarla: 
 
 ```js 
 export async function generateMetadata(  {params}: Props): Promise<Metadata> {
@@ -224,3 +224,15 @@ export async function generateMetadata(  {params}: Props): Promise<Metadata> {
     }
 }
 ```
+
+### Depurar código - Breakpoint  
+
+Un *breakpoint* es un punto en el código donde se detiene la ejecución de la aplicación para inspeccionar el estado actual, permitiéndote analizar variables, revisar el flujo lógico y diagnosticar problemas.
+
+En otras palabras, la colocación de los breakpoint sirve para pausar la ejecución de la función y poder ver cual es el argumento que recibí, que tipo de datos es, que valor tengo en la constante etc sin tener que utilizar los console.log.
+
+Tenemos dos formas de hacer la depuración
+
+1. En el archivo package.json, arriba de los scripts tenemos la opción *debug* entraremos en ellas y seleccionamos el script *dev*. 
+
+2. Abrir la paleta de comando (shift + ctrl + p) y escribimos *debug* y elegimos la opción *debug: Debug npm Script* y llegamos al mismo punto que en la primera forma.
