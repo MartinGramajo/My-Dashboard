@@ -236,3 +236,38 @@ Tenemos dos formas de hacer la depuración
 1. En el archivo package.json, arriba de los scripts tenemos la opción *debug* entraremos en ellas y seleccionamos el script *dev*. 
 
 2. Abrir la paleta de comando (shift + ctrl + p) y escribimos *debug* y elegimos la opción *debug: Debug npm Script* y llegamos al mismo punto que en la primera forma.
+
+
+### Not Found page - 404 
+
+Trabajamos la pagina de 404 tanto para cuando se escriba una url que no tenemos contemplada como cuando el usuario busca por numero un pokemon que no existe.
+
+Por otra parte con un bloque try-catch manejamos la metadata en nuestra page. 
+
+Ahora manejamos el 404 en nuestra petición y para ello tenemos varias formas: 
+1. Notfound() de next/navigation 
+
+```js 
+const getPokemon = async (id: string): Promise<Pokemon> => {
+
+try {
+  const pokemon = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`, {
+    cache: "force-cache" 
+  }).then((res) => res.json());
+  
+  console.log("se cargo ", pokemon.name);
+  
+  return pokemon;
+  
+} catch (error) {
+  notFound()
+}
+
+};
+```
+
+2. Pero con la forma anterior nos lleva al notFount page global que tenemos en nuestra aplicación lo que buscamos es que se nos envié al not found particular del pokemon. 
+Para realizar esto ultimo, tenemos que copiar todo el archivo *not-found.tsx* en la carpeta Pokemon/[id] y hacerle los cambios para diferenciarla.
+
+Nota: la misma estrategia trabajada en este punto se utiliza para los loading, errores etc.
+
